@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Input Angka Ilmiah</title>
+    <script>
+        function validateInput() {
+            let inputField = document.getElementById("sciNumber");
+            let value = inputField.value;
+            let regex = /^-?\d+(\.\d+)?(e[-+]?\d+)?$/i;
+            let message = document.getElementById("message");
+            
+            if (regex.test(value)) {
+                message.style.color = "green";
+                message.textContent = "Ya, ini adalah angka.";
+            } else {
+                message.style.color = "red";
+                message.textContent = "Tidak, ini bukan angka. Harap masukkan angka dalam format ilmiah, contoh: 1.23e+10 atau -2.5e-3";
+            }
+        }
+    </script>
+</head>
+<body>
+    <h2>Masukkan Angka dalam Format Ilmiah</h2>
+    <input type="text" id="sciNumber" oninput="validateInput()" placeholder="Contoh: 1.23e+10">
+    <p id="message"></p>
+</body>
+</html>
